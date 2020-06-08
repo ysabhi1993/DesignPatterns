@@ -13,7 +13,6 @@ bool ColorSpecification::is_satisfied(Product *item) const
 std::vector<Product *> FilterOnTypes::filter(std::vector<Product*> items, Specification<Product> &spec) const
 {   
     std::vector<Product *> result;
-
     for(auto &item : items) {
         if(spec.is_satisfied(item)) 
             result.push_back(item);

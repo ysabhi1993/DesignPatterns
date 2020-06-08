@@ -19,31 +19,19 @@ template <typename T> struct Specification {
     virtual bool is_satisfied(T*) const = 0;
 };
 
-template <typename T> AndSpecification<T> operator&&(const Specification<T> &first, const Specification<T> &second)
-{
+template <typename T> AndSpecification<T> operator&&(const Specification<T> &first, const Specification<T> &second) {
     return {first, second};
 }
 
 struct SizeSpecification : Specification<Product> {
-
     Size size;
-    
-    explicit SizeSpecification(const Size size)
-    : size{ size }
-    {
-    }
-
+    explicit SizeSpecification(const Size size) : size(size) {}
     bool is_satisfied(Product*) const override;
 };
 
 struct ColorSpecification : Specification<Product> {
-
     Color color;
-    
-    explicit ColorSpecification(const Color color)
-    : color{ color }
-    {
-    }
+    explicit ColorSpecification(const Color color) : color(color) {}
     bool is_satisfied(Product*) const override;
 };
 
