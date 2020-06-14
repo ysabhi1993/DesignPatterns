@@ -10,6 +10,13 @@ class Profile {
     std::string gender;
     int age;
 
+public :
+    std::string GetFirstName();
+    std::string GetLastName();
+    std::string GetPhone();
+    std::string GetGender();
+    int GetAge();
+    
     friend class CustomerProfileBuilder;
 };
 

@@ -5,7 +5,11 @@
 #include <string>
 #include <ctime>
 
-struct CustomerAccountBuilder : Builder {
+class CustomerAccountBuilder : public Builder {
+
+public:
+    CustomerAccountBuilder(Customer &customer) : Builder{std::move(customer)} {};
+
     CustomerAccountBuilder &withAccountId(const std::string);
     CustomerAccountBuilder &withAccountName(const std::string);
     CustomerAccountBuilder &withOpenDate(const time_t);
